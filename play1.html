@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://yokochayokoha.github.io/anzu/banner1.png">
+    <meta name="twitter:site" content="@yokocha_yokoha">
+ <meta name="twitter:title" content="あんずはあんずが食べたい!">
+    <meta name="twitter:description" content="ただただあんずを食べさせるだけの暇つぶしコンテンツです。">
+    <meta name="description" content="あんずをこよなく愛する「杏子ちゃん」に沢山あんずを食べさせるシンプルな暇つぶしゲームです!">
+    <title>あんずはあんずが食べたい! プレイ画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif ;
+            margin: 0;
+            overflow: hidden;
+        }
+        #form
+         {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('./anzulovesanzu.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        #res 
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(218, 180, 58);
+            padding: 20px;
+            border: 2px solid black;
+            text-align: center;
+            display: none;
+            color:black;
+            font-size: 19px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            margin: 10px auto;
+           max-height: 60%;
+           width:85%;
+           height: 60%;
+           overflow-x: none;
+           overflow-y: scroll;
+        }
+        
+        #sta 
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(218, 180, 58);
+            padding: 20px;
+            border: 2px solid black;
+            text-align: center;
+            color:black;
+            font-size: 19px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            margin: 10px auto;
+           max-height: 60%;
+           width:85%;
+           height: 60%;
+           overflow-x: none;
+           overflow-y: scroll;
+           
+        }
+        #hinamode
+        {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+        #b2tm
+        {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #retry 
+        {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            
+        }
+
+#sender
+              {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            
+        }  
+        #statusmonitor 
+        {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            color: rgb(243, 162, 85);
+        }
+        #stats
+        {
+            padding: 20px;
+            background-color:rgb(126, 189, 218);
+
+             border-radius: 15px;
+
+             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+
+             max-width: 900px;
+
+            margin: 20px auto;
+        }
+        #jorensan
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="form" width="100%" height="100%"></canvas>
+
+    <div id="res">
+        <p id="finalreskosuu" ></p>
+        <img id="hinamode" src="./entranceofhinamode.png" alt="スマホが欲しい!(条件達成時の隠しリバースモード)をプレイ(Enter the Secretmode.)" width="75%" >
+        <br>
+        <img id="b2tm" src="./back2themain.png" alt="本編に戻る(Back to the Main Content!)" width="75%" >
+        <br>
+        <img id="retry" src="./retry.png" alt="リトライする(Retry)" width="75%" >
+        <br>
+        <a id="sender" href="https://x.com"><img src="./post.png" alt="結果を投稿(Post)" width="75%"></a>
+      
+  <br>
+  <div id="stats">
+    <h3>実績一覧/Achievements</h3>
+    <p>あんず歴(TotalPlays):</p>
+    <p id="counter">0回/times</p>
+    <p>べすとあんずスコア(High Score):</p>
+    <p id="best">0コ/apricot(s)</p>
+    <p>やりこみレベル(Appendix Counts):</p>
+    <p id="nazo">0段階/grade</p>
+    <br>
+    <p>現バージョンの獲得可能やりこみレベル/The Current highest possible appendix counts: 7段階/grade</p>
+    <p>やりこみレベルは何か特定の動作を行った場合に上昇します。/The appendix counts is increased when some specific action is performed.</p>
+  </div>
+  <br>
+    <br><small>
+    <a href="https://yokochayokoha.github.io/anzu/">初期画面へ戻る</a>
+        <br>
+        <a href="https://yokochayokoha.github.io">製作者のサイト</a>
+        <p><ruby>杏子<rt>あんず</rt></ruby>ちゃんのイラスト:©Y.Yokoha All Rights Reserved.</p>
+        <p>※製作者は杏を食べたことがありません。</p>
+        </small>
+    </div>
+    <div id="statusmonitor">
+               <p id="dev"></p>
+        <p id="remaining">残りあと 30秒</p>
+        <p id="anzunokosuu">食べたあんず: 0コ</p>
+ 
+    </div>
+    <!--テキスト収納場所:残り時間:remaining 今取っている個数:anzunokosuu 結果表示:finalreskosuu-->
+    <!--ボタン系id:リトライする(init):retry 投稿:sender-->
+    <!--Canvas要素はform で探す。(C#好き。)-->
+
+    <div id="sta">
+        <h4 id="jorensan">おかえりなさい!/Welcome Back!</h4>
+        <p>あんずはあんずが食べたい! Rev.1.1</p>
+        <h3>このゲームでは音が鳴ります。音量レベルにご注意下さい。</h3>
+        <p>音量を上げすぎると難聴の原因となる場合がございますので、ご注意下さい。</p>
+        <p>それでは、下のボタンをクリックしてゲームをお楽しみください!</p>
+        <p>This game makes sounds. Please pay attention to the volume and be careful not to turn up the volume too high as this may cause hearing loss.</p>
+        <p>Now, click the button below and enjoy the game!</p>
+        <img id="kaisisuru" src="start.png" width="75%" alt="はじめる" style="cursor: pointer;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>リセット/Data Reset</h3>
+        <p>ゲーム履歴データ(実績データ)を削除(リセット)したい方は下へスクロールし、ボタン(画像)をクリックしてください。</p>
+        <p>誤タップ防止のため、ボタンを下に下げてあります。</p>
+        <p>If you want to clear (or reset) your game history data (achievement data), scroll down and click the button (image).</p>
+        <p>The button is lowered to prevent accidental tapping.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>ボタンを押すとすぐにデータ消去が始まります。ご注意ください。</p>
+        <p>Data erasure will begin as soon as the button is pressed. Please be careful.</p>
+        <img id="resetsuru" src="resetimg.png" width="75%" alt="データ初期化/Reset" style="cursor: pointer;">
+        <p>©2024 Y.Yokoha All Rights Reserved.</p>
+        <p>このゲームでは、<a href="https://yokochayokoha.github.io/readme">横茶横葉利用規約</a>内で許可されている項目のほかに、録画、共有が許可されています。ご不明な点等ございましたらお気軽に製作者SNSまでご連絡下さい!</p>
+        <a href="https://x.com/yokochayokoha">制作者連絡用X(旧Twitter)[確認遅めです..]</a>
+        <a href="https://x.com/yokochayokoha">制作者メインX(旧Twitter)</a>
+        <a href="mailto:yokochayokoha@duck.com">yokochayokoha@duck.com</a>
+    </div>
+    <script src="system.js"></script>
+    <!--↑この中にゲームシステム在中。(今回はいろいろ流用できるように分けました!)-->
+    
+</body>
+</html>
