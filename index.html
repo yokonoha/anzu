@@ -1,243 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3CP7YLQMG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K3CP7YLQMG');
-</script>
     <meta charset="UTF-8">
-   <!-- <link rel="manifest" href="/anzu/manifest.json"> -->
+    <link rel="manifest" href="/anzu/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://yokochayokoha.github.io/anzu/banner1.png">
-    <meta name="og:image" content="https://yokochayokoha.github.io/anzu/banner1.png">
-    <meta name="twitter:title" content="あんずはあんずが食べたい!">
-    <meta name="twitter:description" content="ただただあんずを食べさせるだけのシンプルな遊びです。">
-    <meta name="description" content="あんずをこよなく愛する杏子ちゃんに沢山あんずを食べさせるシンプルな暇つぶしゲーム/A game in which you'll make Karamomo Anzu eat her beloved apricots!">
-    <title>あんずはあんずが食べたい! / Anzu wants to eat apricots! - 横茶横葉の暇つぶしコンテンツ</title>
-    <!--制作者(横茶横葉)の隠しメッセージ  これを読めてる方は凄いです!Devtool経由とか、Github経由とか どうやって見つけたのかを是非教えてくださいね!-->
-
-<!--せっかく見ていただいているのでここだけの裏話を: このゲームはキャラクターを描き上げた次の日に作り始めました!(頭 ぼけぼけしてたらいつの間にか作ってました)-->
-<!--私のメインサイトも中身見て頂くとわかると思うのですが、CSS使いまわしです。 CoffeeUI、頑張って作ってたので今は楽をしてます...-->
-<!--初めてHTML5ゲームに手を出したので、バグやら間違いやらがあるかもしれません(いえ、絶対ある気がします)。そんな時はSNSで教えていただけると私はとても助かります!(翻訳ミス報告もお待ちしてます!!)-->
+    <title>あんずはあんずが食べたい!(Anzu wants to eat apricots!)</title>
+    <link rel="stylesheet" href="caffeine.css">
 </head>
 
-<style>
-    body 
-{
-    font-family: Arial, sans-serif ;
-    margin: 0;
-    padding: 0;
-    background-color: #EFFFDF;
-    color: #333;
-                background-image: url('./anzu_backpic.png');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-            max-width: 900px;
-            margin: 20px auto;
-}
-.sep
-{
-    text-align: right;
-    background-color: rgb(245, 200, 76);
-    max-width: 900px;
-    margin: 20px auto;
-}
-.A
-{
-padding: 20px;
-background-color: rgb(245, 200, 76);
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-.align1
-{
-    display: flex;
-    /*↓これ大事!*/
-    align-items: center;
-}
-.align1 h1
-{
-    /*Coffeeブラウザー風タイトル表示(単なる拘り)*/
-    width: 100%;
-    background-color: white;
-}
-.header p
-{
-    width: 100%;
-    background-color: rgb(58, 255, 32);
-    text-align: center;
-
-}
-.header noscript
-{
-    width: 100%;
-    background-color: rgb(255, 72, 72);
-    text-align: center;
-}
-.nooverflow
-{
-    overflow: hidden;
-
-
-}
-.carouselkari
-{
-    
-    width: 50%;
-    height: 100%;
-    position: relative;
-}
-.carouselimgs
-{
-    display: flex;
-    width: 50%;
-    animation: carouselmove 10s infinite;
-}
-.imgcontainer
-{
-    /*一枚づつズーム表示*/
-    width: 100%;
-    flex-shrink: 0;
-}
-.imgcontainer img
-    {
-        width: 100%;
-        height: 100%;
-        object-fit: scale-down;
-    }
-
-@keyframes
-carouselmove
-{
-    /*3枚分の画像アニメーション*/
-    0%{transform: translateX(0%);}
-    33%{transform:translateX(-50%);}
-    66%{transform: translateX(-100%);}
-    100%{transform: translateX(0%);}
-}
-.B
-{
-padding: 20px;
-background-color:darkseagreen;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-.C
-{
-padding: 20px;
-background-color:bisque;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-.D
-{
-    align-items: center;
-    text-align: center;
-padding: 20px;
-background-color:mediumaquamarine;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-button {
-            padding: 10px 20px;
-            background: #ff993a;
-            color: #111;
-            border: none;
-            cursor: pointer;
-            font-family: sans-serif ;
-            display: inline-block;
-            font-size: 18px;
-        }
-}
-#form2
-{
-    position: relative;
-
-            display: flex;
-            flex-direction: column;
-            background-image: url('./anzu_backpic.png');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-}
-        .E
-{
-padding: 20px;
-background-color:white;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-        .F
-{
-padding: 20px;
-background-color:bisque;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-            .G
-{
-padding: 20px;
-background-color:#ffd480;
-/*Coffeeブラウザー風丸角表示(card)*/
-border-radius: 15px;
-/*影(お洒落)*/
-box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-/*はみ出し阻止*/
-max-width: 900px;
-/*マージンを縦20px横自動で指定*/
-margin: 20px auto;
-}
-</style>
 <body>
 <header class="header">
-    <p>難易度調整メンテナンス中です。一部動作が正常に動作しない場合があります。</p>
 <noscript>Javascriptが無効です。有効に設定していない場合、ゲームをプレイできません。Coffeeブラウザーの場合は快適読書モードまたは緊急データセーバー機能をオフに設定してください。</noscript>
     <div  class="A">
-    <div class="align1">
+    <div class="title">
         <img src="icon.png" width="15%" height="15%">
         <h1>あんずはあんずが食べたい!</h1> 
     </div>
@@ -249,89 +24,61 @@ margin: 20px auto;
     </div>
 <div class="B">
     <h3>詳細情報/Details</h3>
-    <h3>現在メンテナンス作業を行っています。プレイは可能です。</h3>
 <p>最終更新/Last update: <date:2024/08/26>2024/08/26</date:2024/08/26> Rev.1.0</p>
 <p>対応言語/Supported languages:日本語 English</p>
 </div>
-<div class="nooverflow">
-<div class="caroucelkari">
-
-    <div class="carouselimgs">
-    <div class="imgcontainer"><img src="./banner1.png" alt="カールセル画像" ></div>
-    <div class="imgcontainer"><img src="./banner2.png" alt="カールセル画像"></div>
-    <div class="imgcontainer"><img src="./banner3.png" alt="カールセル画像" width="100%"></div> 
-    </div>   
- </div>
-</div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<img src="./banner1.png" alt="メイン" style="width: 50vw;">
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
 <div class="C">
     <h2>概要の説明/Description</h2>
-<p>何よりも誰よりもあんず(杏)を愛す杏子ちゃんがただただあんずを食べまくるゲームです。</p>
-<p>一緒に飛んでくる「スマホ」は食べられないので、食べないように気を付けましょう!</p>
-<p>制限時間は30秒です。 高得点、または完全クリア目指して頑張ってください! 食べたあんずの個数はX(旧Twitter)に投稿して記録できます。 暇つぶしに、ぜひ!</p>
+<p>何よりも誰よりもあんず(杏)を愛す<ruby>杏子<rt>あんず</rt></ruby>ちゃんに杏をたくさん食べさせるゲームです。</p>
+<p>一緒に飛んでくる「スマホ」は食べられないので、食べさせないようにしましょう。</p>
+<p>制限時間は30秒です。 食べたあんずの個数はX(旧Twitter)に投稿して記録できます。 暇つぶしにどうぞ。</p>
 <br>
 <p>Anzu is a girl who loves apricots too much. The goal of this game is to feed them to her!</p>
 <p>But, be careful. Please note that the smartphones that flying with apricots are not food! Do not feed them to her!</p>
 <p>The time limit is 30 seconds. Please try your best! You can save your records by posting them on X(formerly Twitter)! </p>
 <br>
-
+<br>
 <br>
 <h3>遊び方/How to play</h3>
 <p>基本的な操作/Basics</p>
 <p>下のボックス内でスマホやタブレットをお使いの方は指で上下、PCマウスをお使いの方はカーソルを上下してみてください。</p>
 <p>Try moving your finger up or down in the box below if you are using a smartphone or tablet, or moving the cursor up or down if you are using a PC mouse.</p>
-<canvas id="form2" width="300px" height="300px"></canvas>
-<p>杏子さんが動きましたか? このように杏子さんをコントロールしてあんずをたくさん食べさせてあげてくださいね!</p>
-<p>Were you able to move Anzu-San? You can control Anzu-San like this and feed her lots of apricots!</p>
+<canvas id="form2" width="400px" height="300px"></canvas>
+<p>杏子ちゃんが動きましたか? このように杏子さんをコントロールしてあんずをたくさん食べさせてください。</p>
+<p>Were you able to move Anzu-chan? You can control Anzu-chan like this and feed her lots of apricots!</p>
 <br>
-<p>基本的にはあんずを多く食べることが目標ですが、もっと遊びたい方のためにゲーム内に更に7つの目標を用意しました(達成条件は秘密です)。条件をすべてクリアすると完全クリア(コンプリート)となります!</p>
-<p>Basically, the goal is to eat more apricots, but for those who want to play more, we have prepared 7 more goals in the game (the conditions for achieving them are secret). When you complete them all, you will have finished the game!</p>
+<p>ご説明は以上です。基本的にはあんずを多く食べることが目標ですが、もっと遊びたい方のためにゲーム内に更に7つの目標を用意しました(達成条件は秘密です)。条件をすべてクリアすると完全クリア(コンプリート)となります!</p>
+<p>That's all for the explanation! Basically, the goal is to eat more apricots, but for those who want to play more, we have prepared 7 more goals in the game (the conditions for achieving them are secret). When you complete them all, you will have finished the game!</p>
 <br>
+<p>それでは、どうぞお楽しみください! Then, please enjoy the game!</p>
 </div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
 <div class="D">
-    <h3>始めるには下のボタンをクリック!/Click the button below to get started!</h3>
-          <button onclick="playstart()">遊ぶ!/Play it now!</button>  
-<!--<h3>端末にインストールすると、もっとアクセスが簡単になります。/Installing it on your device makes it much easier to access.</h3>
-<p>このゲームはPWAアプリとして端末にインストールできます。</p>
-<p>This game can be installed on your device as a PWA application.</p>
-<br>
-<p>PWAとしてインストールするには、スマホでは"ホーム画面に追加"または"インストール"を、PCではURLバー左端インストールボタンを押して下さい。Coffeeブラウザーの方は、Ver.19からゲームがブラウザー内に内蔵される予定ですので追加の操作は不要です。</p>
-<p>To install the game as a PWA, click "Add to Home Screen" or "Install" on your phone, or click the Install button on the left side of the URL bar on your PC.
-    For Coffee Browser users, the game is built into the browser as of version 19, so no additional steps are required.</p>
--->
+<h3>遊ぶには下のボタンをクリックしてください!</h3>
+<h3>To play this game,please click the button below!</h3>
+<button onclick="playstart()">遊ぶ!/Play it now!</button>
 </div>
-
-    <br>
-    <div class="E">
-        <h3>Credits:</h3>
-    <p>音楽/BGM: Y.Yokoha</p>
-    <audio controls src="./bgm.mp3">BGM名:あんずShine!</audio>
-    <p>効果音/Sound Effects: Y.Yokoha</p>
-    <audio controls src="./orin.mp3">タイトル:おりんを手で押さえたままで鳴らした音</audio>
-    <audio controls src="./eatsound.mp3">タイトル:EatSound</audio>
-    <p>イラスト/illustlation: Y.Yokoha</p>
-    <p>キャラクターデザイン/Character Designer(Anzu-chan,Hina Yokoi): Y.Yokoha</p>
-    <p>プログラム/Program: Y.Yokoha</p>
-    <p>デバッグ/Debug Test: Y.Yokoha, Mikan</p>
-    <p>著作権/Copyrights: ©2024 Y.Yokoha All Rights Reserved.</p>
-    <br>
-    <br>
-    <h3>更新履歴</h3>
-    <p>2024/09/22 AM 00:14</p>
-    <p>一部デバイスで操作が不安定になる問題を解消しました。</p>
-    <p>プレイには支障のないアップデートです。</p>
-    <p>2024/09/22 AM 00:25</p>
-    <p>一部端末においてPWAアプリとして実行すると難易度が低下</p>
-    <p>してしまう不具合が発見されましたので、しばらくの間新規</p>
-    <p>インストール受付を停止します。ブックマークを御利用下さい。</p>
-    </div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
+<div class="cnt"><p></p></div>
 <footer>
-    <div class="F">
-    <p>©Y.Yokoha All Rights Reserved.</p>
-    <br>
-        <p>このサイトではアナリティクスが有効です。拒否する場合はブロッカーを御利用下さい。</p>
-    <a href="https://yokochayokoha.github.io/">メインサイトはコチラ!</a>
-    <p>The main motive of editing this site is your happiness!</p>
-    </div>
+<p>Works by Y.Yokoha Studio Project</p>
+<p>©Y.Yokoha All Rights Reserved.</p>
+<p>Development Assistance: Mikan</p>
+<p><small>このページでは<a href="https://github.com/yokonoha/Caffeine_CSS">Caffeine_CSS</a>を使用しています。</small></p>  
 </footer>
 </body>
 <script>
